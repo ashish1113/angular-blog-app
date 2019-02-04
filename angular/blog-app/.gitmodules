@@ -1,0 +1,3 @@
+[submodule "blog-app"]
+	path = blog-app
+	url = https://github.com/ashish1113/edwisor_workspace.git
