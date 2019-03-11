@@ -1,12 +1,13 @@
-import { Component, OnInit ,ViewContainerRef } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { BlogHttpService } from '../blog-http.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 
 import { ActivatedRoute, Router } from "@angular/router"
 
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { error } from '@angular/compiler/src/util';
-import { ToastrService } from 'ngx-toastr';
+//import { ToastrService } from 'ngx-toastr';
 //import { ToastsManager } from 'ng2-toastr/ng2-toastr';
  
 
@@ -23,7 +24,7 @@ export class BlogCreateComponent implements OnInit {
 
  
 
-  constructor(private blogHttpService: BlogHttpService ,private _route:ActivatedRoute,private router :Router,private toastr: ToastrService ) { 
+  constructor(private blogHttpService: BlogHttpService ,private _route:ActivatedRoute,private router :Router,public toastr: ToastrManager ) { 
     //this.toastr.setRootViewContainerRef(vcr);
   }
   
@@ -35,7 +36,7 @@ export class BlogCreateComponent implements OnInit {
 
   ngOnInit() {
   }
-  public createBlog():any{
+  public createBlog1():any{
 
     let blogdata = {
       title:this.blogTitle,
@@ -49,8 +50,9 @@ export class BlogCreateComponent implements OnInit {
 
       data=>{
         console.log("blog created")
-        console.log(data)
-        this.toastr.success('Hello world!', 'Toastr fun!');
+        console.log(data);
+        this.toastr.successToastr('This is success toast.', 'Success!');
+       // this.toastr.success('Hello world!', 'Toastr fun!');
         
        
 

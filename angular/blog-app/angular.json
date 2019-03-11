@@ -24,9 +24,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "/home/admin1/edwisor/angular/blog-app/node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "/home/admin1/edwisor/angular/blog-app/node_modules/ngx-toastr/toastr.css"
-              
+              "/home/admin1/edwisor/angular/blog-app/node_modules/bootstrap/dist/css/bootstrap.min.css"
+             
             ],
             "scripts": [
               "/home/admin1/edwisor/angular/blog-app/node_modules/jquery/dist/jquery.min.js",

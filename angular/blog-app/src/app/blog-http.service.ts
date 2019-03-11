@@ -15,7 +15,7 @@ export class BlogHttpService {
   public allBlogs;
   //public currentBlogId :any;
   public baseUrl = 'https://blogapp.edwisor.com/api/v1/blogs';
-  public authKeyMe="MzE4YmNlNGMwNWU4MmMxYzU4ZDQ4MzQyMjc0NzMyMTE5N2JkZDBlZWYyMzM0OTI1YmUzNzU0MGZmOTk2N2JhNzM5YTkyMzMwNmYyODIxZjU1YjYzNzUyM2FmYzdhMWUyN2QyMmQ1NDViM2VlNjMwNjFkZDA0ZGMzODE0MGFkOGZiYQ==";
+  public authKeyMe="ZTc3OWU3ZTI3OWU3Y2IzMDQzNTY3Mzc4YTQyYjUwODNhMzIzNGMyNjJhZTY3NmY4ODNmOTcyYTZhMDZmYmJmNWM5YjFmN2Y1Nzg2ZmQ0NmI5OTU5OWYxMWNkNWI1NzgxYzc2YjRkZmQ1YjE5ZDMxMzMzYzUwOGE3M2VhZjMzM2NiOQ==";
 
   constructor( private _http:HttpClient) {
     console.log("blog -http service was called")
@@ -29,7 +29,7 @@ export class BlogHttpService {
 
   public getAllBlogs(): any {
     
-    let myResponse =this._http.get(this.baseUrl+'/all?authToken=MzE4YmNlNGMwNWU4MmMxYzU4ZDQ4MzQyMjc0NzMyMTE5N2JkZDBlZWYyMzM0OTI1YmUzNzU0MGZmOTk2N2JhNzM5YTkyMzMwNmYyODIxZjU1YjYzNzUyM2FmYzdhMWUyN2QyMmQ1NDViM2VlNjMwNjFkZDA0ZGMzODE0MGFkOGZiYQ==');
+    let myResponse =this._http.get(this.baseUrl+'/all?authToken=ZTc3OWU3ZTI3OWU3Y2IzMDQzNTY3Mzc4YTQyYjUwODNhMzIzNGMyNjJhZTY3NmY4ODNmOTcyYTZhMDZmYmJmNWM5YjFmN2Y1Nzg2ZmQ0NmI5OTU5OWYxMWNkNWI1NzgxYzc2YjRkZmQ1YjE5ZDMxMzMzYzUwOGE3M2VhZjMzM2NiOQ==');
     console.log(myResponse);
     return myResponse;
 
@@ -55,6 +55,7 @@ export class BlogHttpService {
   }
   public editBlog(blogId,blogdata): any {
     let myResponse =this._http.put(this.baseUrl+ '/' + blogId + '/edit' + '?authToken=' + this.authKeyMe,blogdata);
+    console.log(myResponse);
     return myResponse;
 
   }

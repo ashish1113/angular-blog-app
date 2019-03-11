@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ng6-toastr-notifications';
 
 //import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
@@ -41,7 +41,7 @@ import { BlogHttpService } from './blog-http.service';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot(),    //ng6wala
     //ToastModule.forRoot(),
     
     RouterModule.forRoot([

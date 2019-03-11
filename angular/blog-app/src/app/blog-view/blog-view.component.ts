@@ -3,8 +3,8 @@ import { Component, OnInit, OnDestroy, ViewContainerRef  } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router"
 import { BlogService } from '../blog.service';
 import { BlogHttpService } from '../blog-http.service';
-
-import { ToastrService } from 'ngx-toastr';
+import { ToastrManager } from 'ng6-toastr-notifications';
+//import { ToastrService } from 'ngx-toastr';
 //import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { from } from 'rxjs';
 import {Location} from '@angular/common';
@@ -20,7 +20,7 @@ export class BlogViewComponent implements OnInit, OnDestroy {
   public currentBlog: any;
 
 
-  constructor(private _route: ActivatedRoute, private router: Router, public blogService: BlogService,public blogHttpService:BlogHttpService,private toastr: ToastrService,private location:Location ) {
+  constructor(private _route: ActivatedRoute, private router: Router, public blogService: BlogService,public blogHttpService:BlogHttpService,private location:Location, public toastr: ToastrManager) {
     
     //this.toastr.setRootViewContainerRef(vcr);
     console.log(" blog view constructor is called");
@@ -31,11 +31,12 @@ export class BlogViewComponent implements OnInit, OnDestroy {
     console.log("blog view oninit is called");
     let myBlogId = this._route.snapshot.paramMap.get('blogId');
     console.log(myBlogId);
-    this.currentBlog = this.blogHttpService.getSingleBlogInformation(myBlogId).subscribe(
+    this.blogHttpService.getSingleBlogInformation(myBlogId).subscribe(
       data=>{
         console.log("logging data");
         console.log(data);
         this.currentBlog= data.data;
+        this.toastr.successToastr('This is success toast.', 'Success!');
       },
       error =>{
         console.log("some error occurred");
@@ -52,8 +53,9 @@ export class BlogViewComponent implements OnInit, OnDestroy {
       data=>{
         console.log(`blog ${this.currentBlog.blogId} deleteed`)
         console.log(data);
+        this.toastr.successToastr('This is success toast.', 'Success!');
         
-        this.toastr.success('Hello world!', 'Toastr fun!');
+       // this.toastr.success('Hello world!', 'Toastr fun!');
         setTimeout(()=>{
           this.router.navigate(['/home']);
         },1000)
